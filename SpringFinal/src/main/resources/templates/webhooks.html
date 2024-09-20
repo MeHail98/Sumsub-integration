@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>webhooks</title>
+</head>
+<body>
+<h1>Webhooks</h1>
+<div th:each="webhook : ${webhooks}">
+  <h4 th:text="${webhook}"></h4>
+</div>
+<div>
+  <form action="start" method="get">
+    <button type="submit">Return to main page</button>
+  </form>
+</div>
+</body>
+</html>

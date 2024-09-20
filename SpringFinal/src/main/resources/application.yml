@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    password: postgres
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        auto_quote_keyword: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+  liquibase:
+    change-log: db/db.changelog-master.yaml
+    enabled: true
+    clear-checksums: true
+sumsub:
+  app_token: prd:hrlTmYAj3BFDteSPx74wOXNI.QY8enqNkfbiujrHaSP1FZDGAFBxFJWQK
+  secret_key: 4bOU3fOMfYK1aC5w0J31ITuqVJUj5ETB
+  url: https://dev-cockpit.sumsub.com
+  webhook_secret_key: 555

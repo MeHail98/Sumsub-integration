@@ -1,0 +1,41 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>WebSDK CDN Example</title>
+</head>
+<body>
+<script src="https://static.sumsub.com/idensic/static/sns-websdk-builder.js"></script>
+<div id="sumsub-websdk-container"></div>
+</body>
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  function launchWebSdk(accessToken, applicantEmail, applicantPhone) {
+    let snsWebSdkInstance = snsWebSdk
+            .init(accessToken, () => this.getNewAccessToken())
+            .withConf({
+              lang: "en",
+              email: applicantEmail,
+              phone: applicantPhone,
+            })
+            .withOptions({ addViewportTag: false, adaptIframeHeight: true })
+            .on("idCheck.onStepCompleted", (payload) => {
+              console.log("onStepCompleted", payload);
+            })
+            .on("idCheck.onError", (error) => {
+              console.log("onError", error);
+            })
+            .onMessage((type, payload) => {
+              console.log("onMessage", type, payload);
+            })
+            .build();
+    snsWebSdkInstance.launch("#sumsub-websdk-container");
+  }
+
+  function getNewAccessToken() {
+    return Promise.resolve($NEW_ACCESS_TOKEN);
+  }
+
+  var token = /*[[${accessToken}]]*/ 'default';
+  launchWebSdk(token);
+  /*]]>*/
+</script>
+</html>

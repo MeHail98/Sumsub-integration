@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create applicant</h1>
+<form action="createApplicant" method="post">
+    applicantId:
+    <input type="text" id="external_user_id" name="external_user_id" maxlength="5"/>
+    <br>
+    level name:
+    <select id="select" name="level_name">
+        <option th:each="level : ${listOfLevels}" th:value="${level}" th:text="${level}">basic-kyc-level</option>
+    </select>
+    <br>
+    <br>
+    <button type="submit">create applicant</button>
+</form>
+<div>
+    <form action="start" method="get">
+        <button type="submit">Return to main page</button>
+    </form>
+</div>
+</body>
+</html>

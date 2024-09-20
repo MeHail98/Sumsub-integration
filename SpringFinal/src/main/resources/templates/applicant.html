@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>Applicant's page</h1>
+    <h3 th:text="${applicant}"></h3>
+</div>
+<div>
+    <form action="/api/applicants/link" method="post">
+        <input type="hidden" name="level_name" th:value="${applicant.levelName}" />
+        <input type="hidden" name="external_user_id" th:value="${applicant.externalUserId}" />
+        <button type="submit">Generate verification link</button>
+    </form>
+</div>
+<div>
+    <form action="/api/SDK" method="post">
+        <input type="hidden" name="level_name" th:value="${applicant.levelName}" />
+        <input type="hidden" name="external_user_id" th:value="${applicant.externalUserId}" />
+        <button type="submit">Launch SDK</button>
+    </form>
+</div>
+<div>
+    <form action="/api/start" method="get">
+        <button type="submit">Return to main page</button>
+    </form>
+</div>
+</body>
+</html>
