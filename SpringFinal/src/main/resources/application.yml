@@ -22,5 +22,5 @@ spring:
 sumsub:
   app_token: prd:hrlTmYAj3BFDteSPx74wOXNI.QY8enqNkfbiujrHaSP1FZDGAFBxFJWQK
   secret_key: 4bOU3fOMfYK1aC5w0J31ITuqVJUj5ETB
-  url: https://dev-cockpit.sumsub.com
+  url: https://cockpit.sumsub.com
   webhook_secret_key: 555
